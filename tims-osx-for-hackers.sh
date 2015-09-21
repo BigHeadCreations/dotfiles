@@ -64,12 +64,38 @@ echo ""
 echo "Never go into computer sleep mode"
 systemsetup -setcomputersleep Off > /dev/null
 
-
+echo ""
+echo "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  echo 'Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.'
+  sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+fi
 
 echo ""
 echo "Disable smart quotes and smart dashes as they're annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+echo ""
+echo "Add ability to toggle between Light and Dark mode in Yosemite using ctrl+opt+cmd+t? (y/n)"
+# http://www.reddit.com/r/apple/comments/2jr6s2/1010_i_found_a_way_to_dynamically_switch_between/
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
+fi
+
+
+###############################################################################
+# General Power and Performance modifications
+###############################################################################
+
+echo ""
+echo "Disable the menubar transparency? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  defaults write com.apple.universalaccess reduceTransparency -bool true
+fi
 
 
 ###############################################################################
@@ -96,7 +122,23 @@ echo ""
 echo "Disabling auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+echo ""
+echo "Turn off keyboard illumination when computer is not used for 5 minutes"
+defaults write com.apple.BezelServices kDimTime -int 300
 
+echo ""
+echo "Disable display from automatically adjusting brightness? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
+fi
+
+echo ""
+echo "Disable keyboard from automatically adjusting backlight brightness in low light? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Keyboard Enabled" -bool false
+fi
 
 
 
@@ -110,6 +152,39 @@ echo ""
 echo "Enabling subpixel font rendering on non-Apple LCDs"
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
+echo ""
+echo "Where do you want screenshots to be stored? (hit ENTER if you want ~/Desktop as default)"
+# Thanks https://github.com/omgmog
+read screenshot_location
+echo ""
+if [ -z "${screenshot_location}" ]
+then
+  # If nothing specified, we default to ~/Desktop
+  screenshot_location="${HOME}/Desktop"
+else
+  # Otherwise we use input
+  if [[ "${screenshot_location:0:1}" != "/" ]]
+  then
+    # If input doesn't start with /, assume it's relative to home
+    screenshot_location="${HOME}/${screenshot_location}"
+  fi
+fi
+echo "Setting location to ${screenshot_location}"
+defaults write com.apple.screencapture location -string "${screenshot_location}"
+
+echo ""
+echo "What format should screenshots be saved as? (hit ENTER for PNG, options: BMP, GIF, JPG, PDF, TIFF) "
+read screenshot_format
+if [ -z "$1" ]
+then
+  echo ""
+  echo "Setting screenshot format to PNG"
+  defaults write com.apple.screencapture type -string "png"
+else
+  echo ""
+  echo "Setting screenshot format to $screenshot_format"
+  defaults write com.apple.screencapture type -string "$screenshot_format"
+fi
 
 
 ###############################################################################
@@ -127,6 +202,13 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 echo ""
 echo "Showing status bar in Finder by default"
 defaults write com.apple.finder ShowStatusBar -bool true
+
+echo ""
+echo "Show dotfiles in Finder by default? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  defaults write com.apple.finder AppleShowAllFiles TRUE
+fi
 
 echo ""
 echo "Allowing text selection in Quick Look/Preview in Finder by default"
@@ -155,6 +237,22 @@ echo "Enabling snap-to-grid for icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
+echo ""
+echo "Show item info near icons on the desktop and in other icon views? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+fi
+
+echo ""
+echo "Show item info to the right of the icons on the desktop? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  /usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
+fi
+
 
 ###############################################################################
 # Dock & Mission Control
@@ -178,8 +276,13 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 
 
 ###############################################################################
-# Safari & WebKit
+# Chrome, Safari, and WebKit
 ###############################################################################
+
+echo ""
+echo "Privacy: Dont send search queries to Apple"
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 echo ""
 echo "Hiding Safari's bookmarks bar by default"
@@ -218,6 +321,16 @@ defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.Web
 echo ""
 echo "Adding a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+echo ""
+echo "Disabling the annoying backswipe in Chrome"
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+
+echo ""
+echo "Using the system-native print preview dialog in Chrome"
+defaults write com.google.Chrome DisablePrintPreview -bool true
+defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 
 
 ###############################################################################
@@ -269,31 +382,29 @@ echo ""
 echo "Disable continuous spell checking"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
-###############################################################################
-# Personal Additions
-###############################################################################
-
-
-echo ""
-echo "Disable the sudden motion sensor as it's not useful for SSDs"
-sudo pmset -a sms 0
-
-echo ""
-echo "Speeding up wake from sleep to 24 hours from an hour"
-# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
-sudo pmset -a standbydelay 86400
-
-echo ""
-echo "Disable computer sleep and stop the display from shutting off"
-sudo pmset -a sleep 0
-sudo pmset -a displaysleep 0
-
-echo ""
-echo "Disable annoying backswipe in Chrome"
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
 ###############################################################################
 # Kill affected applications
 ###############################################################################
 
-echo "Done!"
+echo ""
+cecho "Done!" $cyan
+echo ""
+echo ""
+cecho "################################################################################" $white
+echo ""
+echo ""
+cecho "Note that some of these changes require a logout/restart to take effect." $red
+cecho "Killing some open applications in order to take effect." $red
+echo ""
+
+find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+  "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
+  "Terminal" "Transmission"; do
+  killall "${app}" > /dev/null 2>&1
+done
+
+
+
+
