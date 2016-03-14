@@ -4,7 +4,8 @@
 
 # General aliases
 alias ll="ls -lah"
-alias www="cd /Applications/MAMP/htdocs/"
+alias htdocs="cd /Applications/MAMP/htdocs/"
+alias www="cd /Users/timothy/www"
 alias sshfc="ssh root@106.186.116.236"
 alias sshrack="ssh fc@119.9.95.96"
 alias web="cd /Applications/MAMP/htdocs/webpower-ce"
