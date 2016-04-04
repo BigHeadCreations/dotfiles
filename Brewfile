@@ -47,11 +47,9 @@ cask 'vlc'
 # dash (offline documentation)
 # firefox developer edition
 # fishshell
-# kanbox
 # line
 # microsoft office apps (they might be installable via cask but I'm copying over previous versions)
 # myheadset updater (for plantronics headphones)
-# navicat premium (I'm copying over from previous machine)
 # stuffit expander
 # visual paradigm
 # wechat
