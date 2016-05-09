@@ -6,7 +6,7 @@
 alias ll="ls -lah"
 alias htdocs="cd /Applications/MAMP/htdocs/"
 alias www="cd /Users/timothy/www"
-alias meps=cd /Users/timothy/meps"
+alias meps="cd /Users/timothy/meps"
 alias cf="cd /Applications/ColdFusion11/cfusion/wwwroot"
 alias cfstart="sudo /Applications/ColdFusion11/cfusion/bin/cfstart.sh"
 alias cfstop="sudo /Applications/ColdFusion11/cfusion/bin/cfstop.sh"
