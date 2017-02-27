@@ -6,6 +6,7 @@ alias ll="ls -lah"
 alias htdocs="cd /Applications/MAMP/htdocs/"
 alias www="cd /Users/timothy/www"
 alias meps="cd /Users/timothy/meps"
+alias apple="cd /Users/timothy/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias cf="cd /Applications/ColdFusion11/cfusion/wwwroot"
 alias cfstart="sudo /Applications/ColdFusion11/cfusion/bin/cfstart.sh"
 alias cfstop="sudo /Applications/ColdFusion11/cfusion/bin/cfstop.sh"
@@ -24,7 +25,7 @@ alias gco="git checkout"
 ########
 # Prompt
 ########
-export PS1="________________________________________________________________________________\n| \h (\u) @ \w \n| $ "
+export PS1="________________________________________________________________________________\n| \[\e[1;36m\]\u\[\e[m\]@\[\e[1;33m\]\h\[\e[m\]: \[\e[1;32m\]\w\[\e[m\] \n| $ "
 export PS2="| => "
 
 ########
