@@ -8,11 +8,6 @@ alias htdocs="cd /Applications/MAMP/htdocs/"
 alias www="cd /Users/timothy/www"
 alias meps="cd /Users/timothy/meps"
 alias apple="cd /Users/timothy/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias cf="cd /Applications/ColdFusion11/cfusion/wwwroot"
-alias cfstart="sudo /Applications/ColdFusion11/cfusion/bin/cfstart.sh"
-alias cfstop="sudo /Applications/ColdFusion11/cfusion/bin/cfstop.sh"
-alias cfstat="sudo /Applications/ColdFusion11/cfusion/bin/cfstat.sh"
-
 
 # Git aliases
 alias gs="git status"
