@@ -38,3 +38,13 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # Homebrew cask options
 #####
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+#######
+# PATH
+#######
+export PATH="$PATH:/opt/gradle/gradle-3.4.1/bin"
+
+#######
+# Java
+#######
+export JAVA_HOME=$(/usr/libexec/java_home)
