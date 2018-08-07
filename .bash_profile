@@ -13,8 +13,8 @@ alias gs="git status"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gl="git log --oneline"
-alias gdt="git diff > tmpDiff.txt | subl tmpDiff.txt"
-alias rmt="rm tmpDiff.txt"
+alias gdt="git diff > tmpDiff.diff | subl tmpDiff.diff"
+alias rmt="rm tmpDiff.diff"
 alias gsl="git stash list"
 alias gco="git checkout"
 
@@ -34,11 +34,6 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # Homebrew cask options
 #####
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-#######
-# PATH
-#######
-export PATH="$PATH:/opt/gradle/gradle-3.4.1/bin"
 
 #######
 # Java
