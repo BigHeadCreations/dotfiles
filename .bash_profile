@@ -39,3 +39,14 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Java
 #######
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+#####
+# This is the path for the `brew install ruby` version of ruby
+# instead of the outdated ruby provided by macOS
+#####
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+
+## to fix a problem when trying to compile GNU BINUTILS
+export CXXFLAGS="-std=c++11 -Wno-c++11-narrowing"

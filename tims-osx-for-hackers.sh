@@ -1,4 +1,4 @@
-# This is my version (Tim's) of the script. It is safe to run. Cheers.
+# This is my version (Tim's) of the script. It is safe to run.
 
 # OSX for Hackers (Mavericks/Yosemite)
 #
@@ -7,7 +7,7 @@
 #!/bin/sh
 
 # Some things taken from here
-# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 # Ask for the administrator password upfront
 sudo -v
