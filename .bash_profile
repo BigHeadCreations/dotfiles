@@ -50,3 +50,7 @@ export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
 ## to fix a problem when trying to compile GNU BINUTILS
 export CXXFLAGS="-std=c++11 -Wno-c++11-narrowing"
+
+
+## Catalina keeps telling me to use ZSH
+export BASH_SILENCE_DEPRECATION_WARNING=1
