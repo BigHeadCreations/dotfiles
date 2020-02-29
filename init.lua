@@ -18,6 +18,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "d", function()
 end)
 -------------------------------------------------------
 
+
+-- o: open my journal sparseimage
+-- run the command:  do shell script "open ~/Library/Mobile Documents/com~apple~CloudDocs/MyDocs/journ.sparseimage"   with proper escaping
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "o", function()
+  openCommand = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/MyDocs/journ.sparseimage'"]]
+  hs.osascript.applescript(openCommand)
+
+end)
+
+-------------------------------------------------------
+
+
 -- j: journal timestamp snippet in the form of
 -- ---
 -- year: 2020
