@@ -20,10 +20,19 @@ end)
 
 
 -- o: open my journal sparseimage
--- run the command:  do shell script "open ~/Library/Mobile Documents/com~apple~CloudDocs/MyDocs/journ.sparseimage"   with proper escaping
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "o", function()
-  openCommand = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/MyDocs/journ.sparseimage'"]]
-  hs.osascript.applescript(openCommand)
+  openJourn = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/MyDocs/journ.sparseimage'"]]
+  hs.osascript.applescript(openJourn)
+
+end)
+
+-------------------------------------------------------
+
+
+-- k: open my time tracKing sheet
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "k", function()
+  openSheet = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~Numbers/Documents/Daily.numbers'"]]
+  hs.osascript.applescript(openSheet)
 
 end)
 
@@ -42,11 +51,13 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "j", function()
   month = os.date("%B")
   day = os.date("%a")
   dayNumber = os.date("%d")
+  time = os.date("%H:%M")
 
   toPaste = [[---
 year: ]] .. year .. [[ 
 month: ]] .. month .. [[ 
 day: ]] .. day .. " " .. dayNumber .. [[ 
+time: ]] .. time .. [[ 
 ---]]
 
   hs.pasteboard.setContents(toPaste)
@@ -58,6 +69,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "t", function()
   hs.pasteboard.clearContents()
   toPaste = [[## today
 - [ ] 
+
+## pomodoro's
+- [ ] one
+- [ ] two
+- [ ] three
+- [ ] four
+- [ ] five
+- [ ] six
+- [ ] seven
+- [ ] eight
+
+## carryover
 
 
 ## wip

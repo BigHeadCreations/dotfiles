@@ -6,7 +6,7 @@ alias ll="ls -lah"
 alias htdocs="cd /Applications/MAMP/htdocs/"
 alias www="cd ~/www"
 alias apple="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias projects="cd ~/Projects"
+alias proj="cd ~/Projects"
 
 # Git aliases
 alias gs="git status"
