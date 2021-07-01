@@ -44,6 +44,7 @@ end)
 -- year: 2020
 -- month: January
 -- day: Thu 02
+-- time: 9:42
 -- ---
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "j", function()
   hs.pasteboard.clearContents()

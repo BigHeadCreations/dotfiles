@@ -8,6 +8,14 @@ alias www="cd ~/www"
 alias apple="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias proj="cd ~/Projects"
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+
+
 # Git aliases
 alias gs="git status"
 alias gb="git branch"
