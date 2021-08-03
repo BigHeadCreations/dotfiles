@@ -38,6 +38,11 @@ export PS2="| => "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+########
+# Bat (cat clone with wings) colorscheme
+########
+export BAT_THEME="OneHalfLight"
+
 ######
 # Homebrew cask options
 #####
@@ -57,9 +62,10 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
 ## use current python3 installed via homebrew
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
-export PKG_CONFIG_PATH="/usr/local/opt/python@3.8/lib/pkgconfig"
+export PATH="/usr/local/opt/python@3.9/bin:$PATH"
+export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH" # this lets me use python3 as `python`
+export LDFLAGS="-L/usr/local/opt/python@3.9/lib"
+export PKG_CONFIG_PATH="/usr/local/opt/python@3.9/lib/pkgconfig"
 
 ## to fix a problem when trying to compile GNU BINUTILS
 export CXXFLAGS="-std=c++11 -Wno-c++11-narrowing"
