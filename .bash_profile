@@ -29,7 +29,7 @@ alias gco="git checkout"
 ########
 # Prompt
 ########
-export PS1="________________________________________________________________________________\n| \[\e[1;36m\]\u\[\e[m\]@\[\e[1;33m\]\h\[\e[m\]: \[\e[1;32m\]\w\[\e[m\] \n| $ "
+export PS1="_______________________________\n| \[\e[1;36m\]\u\[\e[m\]@\[\e[1;33m\]\h\[\e[m\]: \[\e[1;32m\]\w\[\e[m\] \n| $ "
 export PS2="| => "
 
 ########
@@ -58,8 +58,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # instead of the outdated ruby provided by macOS
 #####
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 
 ## use current python3 installed via homebrew
 export PATH="/usr/local/opt/python@3.9/bin:$PATH"
