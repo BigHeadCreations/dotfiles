@@ -58,8 +58,12 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # instead of the outdated ruby provided by macOS
 #####
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+export GEM_HOME="$HOME/.gem/ruby/3.0.0/gems"
+
+# Jekyll install instructions tell me to set this
+export SDKROOT=$(xcrun --show-sdk-path)
+
 
 ## use current python3 installed via homebrew
 export PATH="/usr/local/opt/python@3.9/bin:$PATH"
