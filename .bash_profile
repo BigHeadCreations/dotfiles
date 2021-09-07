@@ -26,6 +26,13 @@ alias rmt="rm tmpDiff.diff"
 alias gsl="git stash list"
 alias gco="git checkout"
 
+# tmux aliases
+alias t="tmux"
+alias ta="tmux a -t"
+alias tls="tmux ls"
+alias tn="tmux new -t"
+
+
 ########
 # Prompt
 ########
@@ -59,6 +66,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 #####
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/3.0.0/gems/bin:$PATH"
 export GEM_HOME="$HOME/.gem/ruby/3.0.0/gems"
 
 # Jekyll install instructions tell me to set this

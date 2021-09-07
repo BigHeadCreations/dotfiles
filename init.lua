@@ -5,6 +5,12 @@
 local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/www/dotfiles/init.lua", hs.reload):start()
 -------------------------------------------------------
 
+-- applescript to paste contents of pasteboard
+pastescript = [[ tell application "System Events"
+  delay .4
+  keystroke "v" using command down
+end tell ]]
+
 
 -- hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
 --   hs.alert.show("testing", hs.alert.defaultStyle, hs.screen.mainScreen(), 1)
@@ -15,6 +21,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "d", function()
   hs.pasteboard.clearContents()
   myDate = os.date("%Y%m%d") .. ".md"
   hs.pasteboard.setContents(myDate)
+  hs.osascript.applescript(pastescript)
 end)
 -------------------------------------------------------
 
@@ -62,6 +69,7 @@ time: ]] .. time .. [[
 ---]]
 
   hs.pasteboard.setContents(toPaste)
+  hs.osascript.applescript(pastescript)
 end)
 -------------------------------------------------------
 
@@ -89,6 +97,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "t", function()
 
 ]]
   hs.pasteboard.setContents(toPaste)
+  hs.osascript.applescript(pastescript)
 end)
 -------------------------------------------------------
 
