@@ -1,6 +1,10 @@
 -- Hammerspoon config file
 
 
+-- Global variables
+hyper =       {"cmd", "alt", "ctrl"}
+shift_hyper = {"cmd", "alt", "ctrl", "shift"}
+
 -- reload this config file on save
 local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/www/dotfiles/init.lua", hs.reload):start()
 -------------------------------------------------------
@@ -12,12 +16,12 @@ pastescript = [[ tell application "System Events"
 end tell ]]
 
 
--- hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
+-- hs.hotkey.bind(hyper, "W", function()
 --   hs.alert.show("testing", hs.alert.defaultStyle, hs.screen.mainScreen(), 1)
 -- end)
 
 -- d: date snippet
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "d", function()
+hs.hotkey.bind(hyper, "d", function()
   hs.pasteboard.clearContents()
   myDate = os.date("%Y%m%d") .. ".md"
   hs.pasteboard.setContents(myDate)
@@ -27,7 +31,7 @@ end)
 
 
 -- o: open my journal sparseimage
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "o", function()
+hs.hotkey.bind(hyper, "o", function()
   openJourn = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/MyDocs/journ.sparseimage'"]]
   hs.osascript.applescript(openJourn)
 
@@ -37,7 +41,7 @@ end)
 
 
 -- k: open my time tracKing sheet
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "k", function()
+hs.hotkey.bind(hyper, "k", function()
   openSheet = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~Numbers/Documents/Daily.numbers'"]]
   hs.osascript.applescript(openSheet)
 
@@ -53,7 +57,7 @@ end)
 -- day: Thu 02
 -- time: 9:42
 -- ---
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "j", function()
+hs.hotkey.bind(hyper, "j", function()
   hs.pasteboard.clearContents()
   year = os.date("%Y")
   month = os.date("%B")
@@ -74,7 +78,7 @@ end)
 -------------------------------------------------------
 
 -- t: today snippet
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "t", function()
+hs.hotkey.bind(hyper, "t", function()
   hs.pasteboard.clearContents()
   toPaste = [[## today
 - [ ] 
