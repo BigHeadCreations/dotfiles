@@ -80,23 +80,13 @@ end)
 -- t: today snippet
 hs.hotkey.bind(hyper, "t", function()
   hs.pasteboard.clearContents()
-  toPaste = [[## today
+  toPaste = [[## todo's
 - [ ] 
-
-## pomodoro's
-- [ ] one
-- [ ] two
-- [ ] three
-- [ ] four
-- [ ] five
-- [ ] six
-- [ ] seven
-- [ ] eight
 
 ## carryover
 
 
-## wip
+## Monday
 
 
 ]]

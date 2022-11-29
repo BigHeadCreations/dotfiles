@@ -1,0 +1,16 @@
+#
+# GNU Readline config
+# see this post for a good overview:
+# https://www.masteringemacs.org/article/keyboard-shortcuts-every-command-line-hacker-should-know-about-gnu-readline
+#
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+TAB: menu-complete
+
+# default is a little fast at only 500
+set keyseq-timeout 1200
+
+set colored-stats on
+set colored-completion-prefix on
+

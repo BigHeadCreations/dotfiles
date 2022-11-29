@@ -93,3 +93,7 @@ export NVM_DIR="$HOME/.nvm"
 ## VE setting
 export VE_BUILD_COPY=1
 
+
+## Flutter dev
+export PATH="$PATH:$HOME/www/flutter/bin"
+
