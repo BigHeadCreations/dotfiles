@@ -40,7 +40,7 @@ end)
 -------------------------------------------------------
 
 
--- k: open my time tracKing sheet
+-- k: open my daily tracKing sheet
 hs.hotkey.bind(hyper, "k", function()
   openSheet = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~Numbers/Documents/Daily.numbers'"]]
   hs.osascript.applescript(openSheet)
@@ -93,5 +93,16 @@ hs.hotkey.bind(hyper, "t", function()
   hs.pasteboard.setContents(toPaste)
   hs.osascript.applescript(pastescript)
 end)
+-------------------------------------------------------
+
+
+-- m: open my work time tracKing sheet
+-- Money starts with m. I get paid for each entry in this doc
+hs.hotkey.bind(hyper, "m", function()
+  openSheet = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/Work/time.numbers'"]]
+  hs.osascript.applescript(openSheet)
+
+end)
+
 -------------------------------------------------------
 
