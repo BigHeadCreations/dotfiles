@@ -86,7 +86,7 @@ hs.hotkey.bind(hyper, "t", function()
 ## carryover
 
 
-## Monday
+## Tuesday
 
 
 ]]
