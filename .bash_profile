@@ -55,16 +55,12 @@ export BAT_THEME="OneHalfLight"
 #####
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-#######
-# Java
-#######
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 #####
 # This is the path for the `brew install ruby` version of ruby
 # instead of the outdated ruby provided by macOS
 #####
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/ruby/3.3.0/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.0.0/gems/bin:$PATH"
 export GEM_HOME="$HOME/.gem/ruby/3.0.0/gems"
@@ -74,10 +70,10 @@ export SDKROOT=$(xcrun --show-sdk-path)
 
 
 ## use current python3 installed via homebrew
-export PATH="/usr/local/opt/python@3.9/bin:$PATH"
-export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH" # this lets me use python3 as `python`
-export LDFLAGS="-L/usr/local/opt/python@3.9/lib"
-export PKG_CONFIG_PATH="/usr/local/opt/python@3.9/lib/pkgconfig"
+export PATH="/opt/homebrew/Cellar/python@3.12/3.12.1/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/python@3.12/3.12.1/libexec/bin:$PATH" # this lets me use python3 as `python`
+export LDFLAGS="-L/opt/homebrew/Cellar/python@3.12/3.12.1/lib"
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/python@3.12/3.12.1/lib/pkgconfig"
 
 ## to fix a problem when trying to compile GNU BINUTILS
 export CXXFLAGS="-std=c++11 -Wno-c++11-narrowing"
@@ -90,10 +86,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-## VE setting
-export VE_BUILD_COPY=1
-
 
 ## Flutter dev
 export PATH="$PATH:$HOME/www/flutter/bin"
 
+## Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"

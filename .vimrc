@@ -19,6 +19,8 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 set number
+set hlsearch
+set ignorecase
 
 syntax enable
 set background=light
