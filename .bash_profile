@@ -55,6 +55,14 @@ export BAT_THEME="OneHalfLight"
 #####
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+#######
+# Java
+#######
+# The `java_home` program will return the path 
+# to the currently installed JDK
+# Something like `/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home`
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 
 #####
 # This is the path for the `brew install ruby` version of ruby
