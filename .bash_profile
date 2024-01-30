@@ -45,6 +45,11 @@ export PS2="| => "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+#####
+# Sublime Text cli `subl`
+#####
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+
 ########
 # Bat (cat clone with wings) colorscheme
 ########
