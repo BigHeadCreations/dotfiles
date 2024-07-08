@@ -80,13 +80,10 @@ end)
 -- t: today snippet
 hs.hotkey.bind(hyper, "t", function()
   hs.pasteboard.clearContents()
-  toPaste = [[## todo's
-- [ ] 
-
-## carryover
+  toPaste = [[## carryover
 
 
-## Tuesday
+## Monday
 
 
 ]]
