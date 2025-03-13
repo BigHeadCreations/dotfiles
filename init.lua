@@ -80,11 +80,10 @@ end)
 -- t: today snippet
 hs.hotkey.bind(hyper, "t", function()
   hs.pasteboard.clearContents()
-  toPaste = [[## carryover
+  day = os.date("%A")
+  dayNumber = os.date("%d")
 
-
-## Monday
-
+  toPaste = [[## ]] .. day .. " " .. dayNumber .. [[
 
 ]]
   hs.pasteboard.setContents(toPaste)
@@ -93,10 +92,10 @@ end)
 -------------------------------------------------------
 
 
--- m: open my work time tracKing sheet
+-- m: open my work time tracking sheet for Alita 2025
 -- Money starts with m. I get paid for each entry in this doc
 hs.hotkey.bind(hyper, "m", function()
-  openSheet = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/Work/time tracking/time.numbers'"]]
+  openSheet = [[do shell script "open ']] .. os.getenv("HOME") .. [[/Library/Mobile Documents/com~apple~CloudDocs/Work/000 time tracking/Alita time 2025.numbers'"]]
   hs.osascript.applescript(openSheet)
 
 end)
