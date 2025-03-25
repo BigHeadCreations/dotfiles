@@ -83,10 +83,10 @@ export SDKROOT=$(xcrun --show-sdk-path)
 
 
 ## use current python3 installed via homebrew
-export PATH="/opt/homebrew/Cellar/python@3.12/3.12.1/bin:$PATH"
-export PATH="/opt/homebrew/Cellar/python@3.12/3.12.1/libexec/bin:$PATH" # this lets me use python3 as `python`
-export LDFLAGS="-L/opt/homebrew/Cellar/python@3.12/3.12.1/lib"
-export PKG_CONFIG_PATH="/opt/homebrew/Cellar/python@3.12/3.12.1/lib/pkgconfig"
+export PATH="/opt/homebrew/Cellar/python@3.12/3.12.4/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/python@3.12/3.12.4/libexec/bin:$PATH" # this lets me use python3 as `python`
+export LDFLAGS="-L/opt/homebrew/Cellar/python@3.12/3.12.4/lib"
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/python@3.12/3.12.4/lib/pkgconfig"
 
 ## to fix a problem when trying to compile GNU BINUTILS
 export CXXFLAGS="-std=c++11 -Wno-c++11-narrowing"
