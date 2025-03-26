@@ -122,3 +122,9 @@ hs.hotkey.bind(option_shift, "s", function()
 end)
 -------------------------------------------------------
 
+-- option shift h: open/focus Howler Timer
+hs.hotkey.bind(option_shift, "h", function()
+  hs.application.launchOrFocus("/Applications/Howler Timer.app")
+end)
+-------------------------------------------------------
+
