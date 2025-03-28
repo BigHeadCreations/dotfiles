@@ -128,3 +128,8 @@ hs.hotkey.bind(option_shift, "h", function()
 end)
 -------------------------------------------------------
 
+-- option shift g: open/focus Ghostty
+hs.hotkey.bind(option_shift, "g", function()
+  hs.application.launchOrFocus("/Applications/Ghostty.app")
+end)
+-------------------------------------------------------
