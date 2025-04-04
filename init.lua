@@ -9,6 +9,7 @@ local myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/www/dotfiles/init.lu
 hyper =       {"cmd", "alt", "ctrl"}
 shift_hyper = {"cmd", "alt", "ctrl", "shift"}
 option_shift = {"option", "shift"}
+option = {"option"}
 
 -- applescript to paste contents of pasteboard
 pastescript = [[ tell application "System Events"
@@ -98,38 +99,44 @@ hs.hotkey.bind(hyper, "o", function()
 end)
 -------------------------------------------------------
 
--- option shift f: open/focus Firefox
-hs.hotkey.bind(option_shift, "f", function()
+-- open/focus Firefox
+hs.hotkey.bind(option, "1", function()
   hs.application.launchOrFocus("/Applications/Firefox.app")
 end)
 -------------------------------------------------------
 
--- option shift c: open/focus Chrome
-hs.hotkey.bind(option_shift, "c", function()
+-- open/focus Chrome
+hs.hotkey.bind(option, "2", function()
   hs.application.launchOrFocus("/Applications/Google Chrome.app")
 end)
 -------------------------------------------------------
 
--- option shift v: open/focus Visual Studio Code
-hs.hotkey.bind(option_shift, "v", function()
+-- open/focus Visual Studio Code
+hs.hotkey.bind(option, "3", function()
   hs.application.launchOrFocus("/Applications/Visual Studio Code.app")
 end)
 -------------------------------------------------------
 
--- option shift s: open/focus Sublime Text
-hs.hotkey.bind(option_shift, "s", function()
+-- open/focus Sublime Text
+hs.hotkey.bind(option, "4", function()
   hs.application.launchOrFocus("/Applications/Sublime Text.app")
 end)
 -------------------------------------------------------
 
--- option shift h: open/focus Howler Timer
-hs.hotkey.bind(option_shift, "h", function()
-  hs.application.launchOrFocus("/Applications/Howler Timer.app")
+-- open/focus Ghostty
+hs.hotkey.bind(option, "5", function()
+  hs.application.launchOrFocus("/Applications/Ghostty.app")
 end)
 -------------------------------------------------------
 
--- option shift g: open/focus Ghostty
-hs.hotkey.bind(option_shift, "g", function()
-  hs.application.launchOrFocus("/Applications/Ghostty.app")
+-- open/focus Brave Browser
+hs.hotkey.bind(option, "9", function()
+  hs.application.launchOrFocus("/Applications/Brave Browser.app")
+end)
+-------------------------------------------------------
+
+-- open/focus Howler Timer
+hs.hotkey.bind(option, "0", function()
+  hs.application.launchOrFocus("/Applications/Howler Timer.app")
 end)
 -------------------------------------------------------
