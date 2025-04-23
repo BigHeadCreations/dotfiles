@@ -99,33 +99,34 @@ hs.hotkey.bind(hyper, "o", function()
 end)
 -------------------------------------------------------
 
--- open/focus Firefox
+-- open/focus Visual Studio Code
 hs.hotkey.bind(option, "1", function()
+  hs.application.launchOrFocus("/Applications/Visual Studio Code.app")
+end)
+-------------------------------------------------------
+
+-- open/focus Ghostty
+hs.hotkey.bind(option, "2", function()
+  hs.application.launchOrFocus("/Applications/Ghostty.app")
+end)
+-------------------------------------------------------
+
+-- open/focus Firefox
+hs.hotkey.bind(option, "3", function()
   hs.application.launchOrFocus("/Applications/Firefox.app")
 end)
 -------------------------------------------------------
 
 -- open/focus Chrome
-hs.hotkey.bind(option, "2", function()
+hs.hotkey.bind(option, "4", function()
   hs.application.launchOrFocus("/Applications/Google Chrome.app")
 end)
 -------------------------------------------------------
 
--- open/focus Visual Studio Code
-hs.hotkey.bind(option, "3", function()
-  hs.application.launchOrFocus("/Applications/Visual Studio Code.app")
-end)
--------------------------------------------------------
 
 -- open/focus Sublime Text
-hs.hotkey.bind(option, "4", function()
-  hs.application.launchOrFocus("/Applications/Sublime Text.app")
-end)
--------------------------------------------------------
-
--- open/focus Ghostty
 hs.hotkey.bind(option, "5", function()
-  hs.application.launchOrFocus("/Applications/Ghostty.app")
+  hs.application.launchOrFocus("/Applications/Sublime Text.app")
 end)
 -------------------------------------------------------
 
