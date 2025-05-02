@@ -109,4 +109,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ## JetBrains tools
 export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 
+## golang
+export PATH="/usr/local/go/bin:$PATH"
+
 
