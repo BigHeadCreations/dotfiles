@@ -61,9 +61,10 @@ end)
 hs.hotkey.bind(hyper, "t", function()
   hs.pasteboard.clearContents()
   day = os.date("%A")
+  month = os.date("%b")
   dayNumber = os.date("%d")
 
-  toPaste = [[# ]] .. day .. " " .. dayNumber .. [[
+  toPaste = [[# ]] .. day .. " " .. month .. " " .. dayNumber .. [[
 
 ]]
   hs.pasteboard.setContents(toPaste)
